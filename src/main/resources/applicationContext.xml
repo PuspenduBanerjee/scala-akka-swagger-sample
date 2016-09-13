@@ -1,0 +1,35 @@
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:cxf2="http://camel.apache.org/schema/cxf"
+       xmlns="http://www.springframework.org/schema/beans"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+                           http://camel.apache.org/schema/cxf http://camel.apache.org/schema/cxf/camel-cxf.xsd">
+    <!-- JAXRS providers -->
+    <bean id="jsonProvider" class="com.fasterxml.jackson.jaxrs.json.JacksonJsonProvider" />
+
+    <!--&lt;!&ndash; Application resources &ndash;&gt;-->
+    <!--<bean id="sampleResource" class="demo.jaxrs.swagger.server.Sample" />-->
+
+    <!-- CXF Swagger2Feature -->
+    <bean id="swagger2Feature" class="org.apache.cxf.jaxrs.swagger.Swagger2Feature">
+        <property name="runAsFilter" value="true"/>
+        <property name="resourcePackage" value="app.rest.service"/>
+        <property name="title" value="Scala Akka Swagger Sample"/>
+        <property name="version" value="2.0.0"/>
+        <property name="contact" value=" Puspendu"/>
+    </bean>
+
+    <bean id="originFilter" class="app.rest.util.ApiOriginFilter"/>
+
+    <!-- Defined the server endpoint to create the cxf-rs consumer -->
+    <cxf2:rsServer id="rsServer" address="http://localhost:18878/CxfRsRouterTest/route"
+                   serviceClass="app.rest.service.RESTService"
+                   loggingFeatureEnabled="true" loggingSizeLimit="20" skipFaultLogging="true">
+        <cxf2:providers>
+            <ref bean="jsonProvider"/>
+            <ref bean="originFilter"/>
+        </cxf2:providers>
+        <cxf2:features>
+            <ref bean="swagger2Feature"/>
+        </cxf2:features>
+    </cxf2:rsServer>
+</beans>
