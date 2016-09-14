@@ -1,3 +1,5 @@
+# A sample to showcase painless integration of Scala, Akka, Camel, CXF & Swagger
+
 
 Notes on cxf camel integration:
     Service Base: http://localhost:18878/CxfRsRouterTest/route
