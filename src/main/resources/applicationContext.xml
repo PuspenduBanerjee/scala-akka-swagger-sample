@@ -21,7 +21,7 @@
     <bean id="originFilter" class="app.rest.util.ApiOriginFilter"/>
 
     <!-- Defined the server endpoint to create the cxf-rs consumer -->
-    <cxf2:rsServer id="rsServer" address="http://localhost:18878/CxfRsRouterTest/route"
+    <cxf2:rsServer id="rsServer" address="http://localhost:${rest.port}/CxfRsRouterTest/route"
                    serviceClass="app.rest.service.RESTService"
                    loggingFeatureEnabled="true" loggingSizeLimit="20" skipFaultLogging="true">
         <cxf2:providers>
