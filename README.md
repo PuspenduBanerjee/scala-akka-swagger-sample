@@ -1,4 +1,4 @@
-# A sample to showcase painless integration of Scala, Akka, Camel, CXF & Swagger
+# A sample to showcase painless integration of Scala, Spring, Akka, Camel, CXF & Swagger
 
 
 Notes on cxf camel integration:
