@@ -1,0 +1,6 @@
+{
+  "name": "Scala-akka-swagger-sample",
+  "tagline": "A sample to showcase how simply a Service & service description can be generated",
+  "body": "### A sample to showcase painless integration of Scala, Spring, Akka, Camel, CXF & Swagger\r\n\r\n\r\nNotes on cxf camel integration:\r\n\r\n    - Service Base: http://localhost:18878/CxfRsRouterTest/route\r\n    - REST WADL http://localhost:18878/CxfRsRouterTest/route?_wadl\r\n    - REST SWAGGER http://localhost:18878/CxfRsRouterTest/route/swagger.json|yaml\r\n    - REST SWAGGER UI http://localhost:18878/CxfRsRouterTest/route/api-docs?/url=/CxfRsRouterTest/route/swagger.json\r\n",
+  "note": "Don't delete this file! It's used internally to help with page regeneration."
+}
