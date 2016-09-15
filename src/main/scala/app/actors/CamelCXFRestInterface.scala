@@ -9,7 +9,8 @@ class CamelCXFRestInterface extends Actor {
 
   def receive =  {
     case msg: CamelMessage =>
-      sender() ! new DummyResponse(1, msg.headers("whoami").toString)
+      val whoamI= Option(msg.headers("whoami")).getOrElse("Anonymous").toString
+      sender() ! new DummyResponse(whoamI.hashCode,whoamI)
   }
 }
 
